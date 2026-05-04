@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #60a3e6;
+    color: #0D2137;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #597084; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #8FAEC4; }
+}
+
+@layer components {
+
+  /* ── Cards ─────────────────────────────────── */
+  .card {
+    @apply bg-purple-400 rounded-2xl shadow-card border border-navy-50 p-6;
+  }
+  .card-sm {
+    @apply bg-white rounded-xl shadow-card border border-navy-50 p-4;
+  }
+
+  /* ── Buttons ────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center gap-2 font-body font-medium
+           rounded-xl px-4 py-2.5 text-sm transition-all duration-150
+           focus:outline-none focus:ring-2 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-navy-800 text-white hover:bg-navy-700
+           focus:ring-navy-500 shadow-sm hover:shadow-md;
+  }
+  .btn-mint {
+    @apply btn bg-mint text-white hover:bg-mint-500
+           focus:ring-mint-400 shadow-sm hover:shadow-glow;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-navy-500 hover:bg-navy-50
+           border border-navy-100 focus:ring-navy-300;
+  }
+  .btn-danger {
+    @apply btn bg-coral text-white hover:bg-coral-500
+           focus:ring-coral-400;
+  }
+  .btn-icon {
+    @apply w-9 h-9 inline-flex items-center justify-center rounded-xl
+           bg-navy-50 text-navy-500 hover:bg-navy-100 transition-colors
+           focus:outline-none focus:ring-2 focus:ring-navy-300;
+  }
+
+  /* ── Inputs ─────────────────────────────────── */
+  .input {
+    @apply w-full font-body text-sm text-navy-800
+           bg-navy-50 border border-navy-100 rounded-xl
+           px-4 py-2.5 placeholder-navy-200
+           focus:outline-none focus:ring-2 focus:ring-mint-400
+           focus:border-transparent focus:bg-white
+           transition-all duration-150;
+  }
+  .input-label {
+    @apply block text-xs font-semibold uppercase tracking-widest
+           text-navy;
+           text-decoration: solid;
+  }
+  .input-error {
+    @apply text-xs text-coral mt-1;
+  }
+
+  /* ── Score Badges ────────────────────────────── */
+  .score-excellent { @apply bg-mint-50 text-mint-600 border border-mint-400; }
+  .score-good      { @apply bg-blue-50 text-blue-700 border border-blue-200; }
+  .score-fair      { @apply bg-amber-50 text-amber-700 border border-amber-200; }
+  .score-poor      { @apply bg-red-50 text-red-700 border border-red-200; }
+
+  /* ── Table ───────────────────────────────────── */
+  .tbl-th {
+    @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider
+           text-navy-300 bg-navy-50 first:rounded-tl-xl last:rounded-tr-xl;
+  }
+  .tbl-td {
+    @apply px-4 py-3.5 text-sm text-navy-700 border-b border-navy-50;
+  }
+
+  /* ── Sidebar Nav ─────────────────────────────── */
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium
+           text-navy-100 hover:bg-white/10 transition-all duration-150;
+  }
+  .nav-link.active {
+    @apply bg-white text-navy-800 shadow-sm;
+  }
+
+  /* ── AI Panel ────────────────────────────────── */
+  .ai-panel {
+    @apply rounded-2xl border border-mint-400/30 bg-gradient-to-br
+           from-mint-50 to-white p-5;
+  }
+
+  /* ── Status Chip ─────────────────────────────── */
+  .chip {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold
+           px-2.5 py-1 rounded-full;
+  }
+
+  /* ── Page animation helpers ──────────────────── */
+  .page-enter { @apply animate-fade-in; }
+  .stagger-1  { animation-delay: 0.05s; }
+  .stagger-2  { animation-delay: 0.10s; }
+  .stagger-3  { animation-delay: 0.15s; }
+  .stagger-4  { animation-delay: 0.20s; }
+}
