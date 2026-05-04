@@ -1,6 +1,15 @@
-You are an expert AI medical data analyst.
-Analyze the following patient health metrics and provide a clear, descriptive text summary of their current health status. 
-Structure your output as JSON, containing a single key "description" with your analysis.
+# NOTE: This file is kept for backward compatibility.
+# The active prompt templates are:
+#   - describe_prompt.txt  (used by POST /describe)
+#   - recommend_prompt.txt (used by POST /recommend)
+#   - report_prompt.txt    (used by POST /generate-report)
 
-Input metrics: 
+You are an expert GRC (Governance, Risk, and Compliance) analyst.
+Analyse the following GRC record data and provide a clear, professional description of the organisation's current compliance and risk posture.
+
+Return your response as a JSON object with a single key "description" containing your analysis.
+
+Do NOT include any personal identifiable information in your response.
+
+Input metrics:
 {input_data}
