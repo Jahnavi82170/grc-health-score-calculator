@@ -121,6 +121,7 @@ def add_security_headers(response):
     return response
 
 # ─── Health Endpoint ──────────────────────────────────────────────────
+@app.route('/', methods=['GET'])
 @app.route('/health', methods=['GET'])
 def health():
     """
